@@ -50,6 +50,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -169,14 +171,58 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ControllersClasses\ClientesController.cs" />
+    <Compile Include="Controllers\ControllersClasses\DepartamentoController.cs" />
+    <Compile Include="Controllers\ControllersClasses\InventarioController.cs" />
+    <Compile Include="Controllers\ControllersClasses\ProduccionTerminadaController.cs" />
+    <Compile Include="Controllers\ControllersClasses\ProveedoresController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\clientes.cs">
+      <DependentUpon>Maquiladb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\departamento.cs">
+      <DependentUpon>Maquiladb.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\inventario.cs">
+      <DependentUpon>Maquiladb.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Maquiladb.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Maquiladb.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Maquiladb.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Maquiladb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Maquiladb.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Maquiladb.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\produccion_terminada.cs">
+      <DependentUpon>Maquiladb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\proveedores.cs">
+      <DependentUpon>Maquiladb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>Maquiladb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_helpdiagrams_Result.cs">
+      <DependentUpon>Maquiladb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagrams.cs">
+      <DependentUpon>Maquiladb.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -200,12 +246,29 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Models\Maquiladb.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Maquiladb.edmx</DependentUpon>
+      <LastGenOutput>Maquiladb.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Maquiladb.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Maquiladb.edmx</DependentUpon>
+      <LastGenOutput>Maquiladb.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
     <Content Include="Scripts\bootstrap.esm.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <EntityDeploy Include="Models\Maquiladb.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Maquiladb.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Maquiladb.edmx.diagram">
+      <DependentUpon>Maquiladb.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -251,9 +314,18 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Clientes\Index.cshtml" />
+    <Content Include="Views\Clientes\Create.cshtml" />
+    <Content Include="Views\Clientes\Edit.cshtml" />
+    <Content Include="Views\Clientes\Delete.cshtml" />
+    <Content Include="Views\Clientes\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Departamento\" />
+    <Folder Include="Views\Inventario\" />
+    <Folder Include="Views\ProduccionTerminada\" />
+    <Folder Include="Views\Proveedores\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
@@ -281,6 +353,9 @@
     <Content Include="Scripts\bootstrap.bundle.js.map" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
