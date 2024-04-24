@@ -1,5 +1,7 @@
-﻿using System;
+﻿using CrudMaquila.Models;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -11,13 +13,19 @@ namespace CrudMaquila.Controllers.ControllersClasses
         // GET: ProduccionTerminada
         public ActionResult Index()
         {
-            return View();
+            using (maquilaEntities context = new maquilaEntities())
+            {
+                return View(context.produccion_terminada.ToList());
+            }
         }
 
         // GET: ProduccionTerminada/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            using (maquilaEntities context = new maquilaEntities())
+            {
+                return View(context.produccion_terminada.Where(x => x.id == id).FirstOrDefault());
+            }
         }
 
         // GET: ProduccionTerminada/Create
@@ -28,11 +36,15 @@ namespace CrudMaquila.Controllers.ControllersClasses
 
         // POST: ProduccionTerminada/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(produccion_terminada Produccion_Terminada)
         {
             try
             {
-                // TODO: Add insert logic here
+                using (maquilaEntities context = new maquilaEntities())
+                {
+                    context.produccion_terminada.Add(Produccion_Terminada);
+                    context.SaveChanges();
+                }
 
                 return RedirectToAction("Index");
             }
@@ -45,16 +57,23 @@ namespace CrudMaquila.Controllers.ControllersClasses
         // GET: ProduccionTerminada/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            using (maquilaEntities context = new maquilaEntities())
+            {
+                return View(context.produccion_terminada.Where(x => x.id == id).FirstOrDefault());
+            }
         }
 
         // POST: ProduccionTerminada/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, produccion_terminada Produccion_Terminada)
         {
             try
             {
-                // TODO: Add update logic here
+                using (maquilaEntities context = new maquilaEntities())
+                {
+                    context.Entry(Produccion_Terminada).State = EntityState.Modified;
+                    context.SaveChanges();
+                }
 
                 return RedirectToAction("Index");
             }
@@ -67,7 +86,10 @@ namespace CrudMaquila.Controllers.ControllersClasses
         // GET: ProduccionTerminada/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            using (maquilaEntities context = new maquilaEntities())
+            {
+                return View(context.produccion_terminada.Where(x => x.id == id).FirstOrDefault());
+            }
         }
 
         // POST: ProduccionTerminada/Delete/5
@@ -76,7 +98,12 @@ namespace CrudMaquila.Controllers.ControllersClasses
         {
             try
             {
-                // TODO: Add delete logic here
+                using (maquilaEntities context = new maquilaEntities())
+                {
+                    produccion_terminada Produccion_Terminada = context.produccion_terminada.Where(x => x.id == id).FirstOrDefault();
+                    context.produccion_terminada.Remove(Produccion_Terminada);
+                    context.SaveChanges();
+                }
 
                 return RedirectToAction("Index");
             }

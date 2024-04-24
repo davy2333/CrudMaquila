@@ -1,15 +1,16 @@
 ﻿@{
     Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
 }
-@model IEnumerable<CrudMaquila.Models.clientes>
+@model IEnumerable<CrudMaquila.Models.produccion_terminada>
 
-<h2>CLIENTES</h2>
+
+<h2>PRODUCCION</h2>
 <!DOCTYPE html>
 
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
+    <title>PRODUCCION TERMINADA</title>
 </head>
 <body>
     <p>
@@ -18,19 +19,22 @@
     <table class="table">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.nombre)
+                @Html.DisplayNameFor(model => model.prenda_terminada)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.telefono)
+                @Html.DisplayNameFor(model => model.fecha_fabricacion)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.direccion)
+                @Html.DisplayNameFor(model => model.cantidad)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.email)
+                @Html.DisplayNameFor(model => model.id_cliente)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.estado_pago)
+                @Html.DisplayNameFor(model => model.id_departamento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.id_inventario)
             </th>
             <th></th>
         </tr>
@@ -39,19 +43,22 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.nombre)
+                    @Html.DisplayFor(modelItem => item.prenda_terminada)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.telefono)
+                    @Html.DisplayFor(modelItem => item.fecha_fabricacion)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.direccion)
+                    @Html.DisplayFor(modelItem => item.cantidad)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.email)
+                    @Html.DisplayFor(modelItem => item.id_cliente)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.estado_pago)
+                    @Html.DisplayFor(modelItem => item.id_departamento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.id_inventario)
                 </td>
                 <td>
                     @Html.ActionLink("Edit", "Edit", new { id = item.id }) |

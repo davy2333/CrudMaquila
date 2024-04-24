@@ -176,6 +176,7 @@
     <Compile Include="Controllers\ControllersClasses\InventarioController.cs" />
     <Compile Include="Controllers\ControllersClasses\ProduccionTerminadaController.cs" />
     <Compile Include="Controllers\ControllersClasses\ProveedoresController.cs" />
+    <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -319,13 +320,31 @@
     <Content Include="Views\Clientes\Edit.cshtml" />
     <Content Include="Views\Clientes\Delete.cshtml" />
     <Content Include="Views\Clientes\Details.cshtml" />
+    <Content Include="Views\Shared\_LayoutDashboard.cshtml" />
+    <Content Include="Views\Dashboard\Index.cshtml" />
+    <Content Include="Views\Departamento\Index.cshtml" />
+    <Content Include="Views\Inventario\Index.cshtml" />
+    <Content Include="Views\ProduccionTerminada\Index.cshtml" />
+    <Content Include="Views\Proveedores\Index.cshtml" />
+    <Content Include="Views\Departamento\Details.cshtml" />
+    <Content Include="Views\Inventario\Details.cshtml" />
+    <Content Include="Views\ProduccionTerminada\Details.cshtml" />
+    <Content Include="Views\Proveedores\Details.cshtml" />
+    <Content Include="Views\Departamento\Create.cshtml" />
+    <Content Include="Views\Inventario\Create.cshtml" />
+    <Content Include="Views\ProduccionTerminada\Create.cshtml" />
+    <Content Include="Views\Proveedores\Create.cshtml" />
+    <Content Include="Views\Departamento\Edit.cshtml" />
+    <Content Include="Views\Departamento\Delete.cshtml" />
+    <Content Include="Views\Inventario\Delete.cshtml" />
+    <Content Include="Views\Inventario\Edit.cshtml" />
+    <Content Include="Views\ProduccionTerminada\Edit.cshtml" />
+    <Content Include="Views\ProduccionTerminada\Delete.cshtml" />
+    <Content Include="Views\Proveedores\Edit.cshtml" />
+    <Content Include="Views\Proveedores\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Departamento\" />
-    <Folder Include="Views\Inventario\" />
-    <Folder Include="Views\ProduccionTerminada\" />
-    <Folder Include="Views\Proveedores\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />

@@ -1,5 +1,7 @@
-﻿using System;
+﻿using CrudMaquila.Models;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -11,13 +13,19 @@ namespace CrudMaquila.Controllers.ControllersClasses
         // GET: Inventario
         public ActionResult Index()
         {
-            return View();
+            using (maquilaEntities context = new maquilaEntities())
+            {
+                return View(context.inventario.ToList());
+            }
         }
 
         // GET: Inventario/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            using (maquilaEntities context = new maquilaEntities())
+            {
+                return View(context.inventario.Where(x => x.id == id).FirstOrDefault());
+            }
         }
 
         // GET: Inventario/Create
@@ -28,11 +36,15 @@ namespace CrudMaquila.Controllers.ControllersClasses
 
         // POST: Inventario/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(inventario Inventario)
         {
             try
             {
-                // TODO: Add insert logic here
+                using (maquilaEntities context = new maquilaEntities())
+                {
+                    context.inventario.Add(Inventario);
+                    context.SaveChanges();
+                }
 
                 return RedirectToAction("Index");
             }
@@ -45,16 +57,23 @@ namespace CrudMaquila.Controllers.ControllersClasses
         // GET: Inventario/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            using (maquilaEntities context = new maquilaEntities())
+            {
+                return View(context.inventario.Where(x => x.id == id).FirstOrDefault());
+            }
         }
 
         // POST: Inventario/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, inventario Inventario)
         {
             try
             {
-                // TODO: Add update logic here
+                using (maquilaEntities context = new maquilaEntities())
+                {
+                    context.Entry(Inventario).State = EntityState.Modified;
+                    context.SaveChanges();
+                }
 
                 return RedirectToAction("Index");
             }
@@ -67,7 +86,10 @@ namespace CrudMaquila.Controllers.ControllersClasses
         // GET: Inventario/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            using (maquilaEntities context = new maquilaEntities())
+            {
+                return View(context.inventario.Where(x => x.id == id).FirstOrDefault());
+            }
         }
 
         // POST: Inventario/Delete/5
@@ -76,7 +98,12 @@ namespace CrudMaquila.Controllers.ControllersClasses
         {
             try
             {
-                // TODO: Add delete logic here
+                using (maquilaEntities context = new maquilaEntities())
+                {
+                    inventario Inventario = context.inventario.Where(x => x.id == id).FirstOrDefault();
+                    context.inventario.Remove(Inventario);
+                    context.SaveChanges();
+                }
 
                 return RedirectToAction("Index");
             }

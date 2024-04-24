@@ -1,0 +1,74 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+@model CrudMaquila.Models.inventario
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>inventario</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.producto)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.producto)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.cantidad)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.cantidad)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.descripcion)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.descripcion)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.precio)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.precio)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.MOQ)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MOQ)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.id_proveedores)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.id_proveedores)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

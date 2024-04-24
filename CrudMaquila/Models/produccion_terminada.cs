@@ -27,7 +27,7 @@ namespace CrudMaquila.Models
         public Nullable<int> id_cliente { get; set; }
         [Display(Name = "departamento asignado(FK)")]
         public Nullable<int> id_departamento { get; set; }
-        [Display(Name = "producro mas usado(FK)")]
+        [Display(Name = "producto mas usado(FK)")]
         public Nullable<int> id_inventario { get; set; }
     
         public virtual clientes clientes { get; set; }

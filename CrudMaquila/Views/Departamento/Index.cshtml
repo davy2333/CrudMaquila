@@ -1,15 +1,17 @@
 ﻿@{
     Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
 }
-@model IEnumerable<CrudMaquila.Models.clientes>
+@model IEnumerable<CrudMaquila.Models.departamento>
 
-<h2>CLIENTES</h2>
+
+<h2>DEPARTAMENTOS</h2>
+
 <!DOCTYPE html>
 
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
+    <title>DEPARTAMENTO</title>
 </head>
 <body>
     <p>
@@ -20,18 +22,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.nombre)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.telefono)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.direccion)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.email)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.estado_pago)
-            </th>
             <th></th>
         </tr>
 
@@ -40,18 +30,6 @@
             <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.nombre)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.telefono)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.direccion)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.email)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.estado_pago)
                 </td>
                 <td>
                     @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
